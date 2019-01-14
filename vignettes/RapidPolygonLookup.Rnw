@@ -70,8 +70,13 @@ Fig \ref{fig:sfCrime} visualizes the crime incidents on the map of San Francisco
 library(RgoogleMaps)
 library(RapidPolygonLookup)
 data(sf.crime.2012)
-sf.map <- GetMap(center=c(lat = 37.77173, lon = -122.4306), destfile = "sanFrancisco.png", 
+if (0) {
+  sf.map <- GetMap(center=c(lat = 37.77173, lon = -122.4306), destfile = "sanFrancisco.png", 
                  size=c(550,550), GRAYSCALE = FALSE, zoom = 13, verbose= FALSE)
+} else {
+  sf.map = ReadMapTile("SanFrancisco.png")    
+}
+
 color <- ifelse(sf.crime.2012$violent == "TRUE", "red", "green4")
 PlotOnStaticMap(MyMap= sf.map, lat= sf.crime.2012$Y, lon= sf.crime.2012$X, 
                 col= color, cex= 0.35, pch= 20)

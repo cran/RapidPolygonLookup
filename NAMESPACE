@@ -1,5 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 importFrom("RgoogleMaps", GetMap,PlotOnStaticMap,qbbox)
-importFrom("PBSmapping", plotPolys,calcCentroid)
+importFrom("PBSmapping", plotPolys,calcCentroid,clipPolys)
 importFrom("RANN", nn2)
-importFrom("sp", point.in.polygon)
+importFrom("sp", point.in.polygon,bbox)
+importFrom("graphics", "points")
